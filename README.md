@@ -1,8 +1,8 @@
 # WeatherApp
 Android weather application
 
-##MVVM Architecture
+## MVVM Architecture
 
-##Retrofit
+## Retrofit
 
 https://ivanzarkovic.com
