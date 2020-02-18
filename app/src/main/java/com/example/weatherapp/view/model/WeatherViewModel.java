@@ -23,8 +23,7 @@ public class WeatherViewModel extends ViewModel {
 //if the list is null
         if (weatherData == null) {
             weatherData = new MutableLiveData<Model>();
-//we will load it asynchronously from server in this method
-            //Log.d("responser", "response success");
+//we will load it asynchronously from server in this method=
             loadWeatherData();
         }
 //finally we will return the list
