@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         //creating an viewmodel instance
         WeatherViewModel model = ViewModelProviders.of(this).get(WeatherViewModel.class);
 
+        model.init();
+
         //setting the observer
         model.getWeather().observe(this, new Observer<Model>() {
 
