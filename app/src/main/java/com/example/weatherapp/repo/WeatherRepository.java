@@ -16,7 +16,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class WeatherRepository {
 
     private static WeatherRepository instance;
-    private Model weatherData = new Model();
     MutableLiveData<Model> data = new MutableLiveData<>();
 
     //create cunstructor using Singleton pattern

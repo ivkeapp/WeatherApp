@@ -25,15 +25,16 @@ public class WeatherViewModel extends ViewModel {
         if(weatherData!=null){
             return;
         }
+//create repository instance
         mRepo = WeatherRepository.getInstance();
+//now we will load it asynchronously from the server in this method via WeatherRepository
         weatherData = mRepo.getWeatherData();
     }
 
     public LiveData<Model> getWeather() {
-//if the list is null
+//if the data is null
         if (weatherData == null) {
             weatherData = new MutableLiveData<Model>();
-//we will load it asynchronously from server in this method via WeatherRepository
             init();
         }
 //finally we will return the data
