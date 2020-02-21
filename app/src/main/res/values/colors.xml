@@ -3,4 +3,12 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="purpleLight">#BE58EF</color>
+    <color name="purpleMid">#903CE2</color>
+    <color name="purpleDarker">#7620CB</color>
+    <color name="purpleDark">#4D20CB</color>
+    <color name="blueLight">#4D20CB</color>
+    <color name="blue">#3F5BDF</color>
+    <color name="white">#fff</color>
+    3F5BDF
 </resources>

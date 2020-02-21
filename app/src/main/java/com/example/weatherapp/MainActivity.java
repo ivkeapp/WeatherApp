@@ -7,16 +7,22 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.example.weatherapp.pojo.Main;
+import com.example.weatherapp.model.WeatherModel;
 import com.example.weatherapp.pojo.Model;
-import com.example.weatherapp.pojo.Weather;
 import com.example.weatherapp.view.model.WeatherViewModel;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class MainActivity extends AppCompatActivity {
+
+    TextView tvTemperature, tvTime, tvCity, tvDate;
+    ImageView imgWeather;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,22 +33,35 @@ public class MainActivity extends AppCompatActivity {
 
         //creating an viewmodel instance
         WeatherViewModel model = ViewModelProviders.of(this).get(WeatherViewModel.class);
-
-        model.init();
-
-        //setting the observer
-        model.getWeather().observe(this, new Observer<Model>() {
+        tvTemperature = findViewById(R.id.tv_temperature);
+        tvTime = findViewById(R.id.tv_time);
+        tvCity = findViewById(R.id.tv_city);
+        tvDate = findViewById(R.id.tv_date);
+        imgWeather = findViewById(R.id.image);
+        model.getWeather().observe(this, new Observer<WeatherModel>() {
 
 
             @Override
-            public void onChanged(@Nullable Model model) {
+            public void onChanged(@Nullable WeatherModel model) {
 
-                //later this data will be used to update UI
-                Log.d("responser", "City: " + model.getName());
-                Log.d("responser", "Current temperature in F: " + model.getMain().getTemp().toString());
+                tvTemperature.setText(model.getTemp() + (char) 0x00B0);
+                tvTime.setText(model.getTimeDate().getTime());
+                tvCity.setText(model.getCity().toUpperCase());
+                tvDate.setText(model.getTimeDate().getDate());
 
+                switch (model.getWeather().toLowerCase()){
+                    case "scattered clouds": imgWeather.setImageDrawable(getResources().getDrawable(R.drawable.very_cloudy3x8));
+                        break;
+                    case "broken clouds": imgWeather.setImageDrawable(getResources().getDrawable(R.drawable.very_cloudy3x8));
+                        break;
+                    case "few clouds": imgWeather.setImageDrawable(getResources().getDrawable(R.drawable.cloudy_13x8));
+                        break;
+                    case "light rain": imgWeather.setImageDrawable(getResources().getDrawable(R.drawable.rain3x8));
+                        break;
+                }
             }
         });
 
     }
+
 }
