@@ -35,8 +35,8 @@ public class TimeDate {
     }
 
     public void setDate() {
-        String datePattern = "MMM dd";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern, Locale.US);
+        String datePattern = "MMMM dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern, new Locale("US"));
         Date timeDate = new Date();
         String date = simpleDateFormat.format(timeDate);
         this.date = date;
