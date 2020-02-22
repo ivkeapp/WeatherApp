@@ -42,7 +42,7 @@ public class WeatherRepository {
                 .build();
 
         RetrofitApiService api = retrofit.create(RetrofitApiService.class);
-        Call<Model> call = api.getWeatherData();
+        Call<Model> call = api.getWeatherData("belgrade", "f2b96f6f33777b4db1b2214c6e17db22");
         call.enqueue(new Callback<Model>() {
             @Override
             public void onResponse(Call<Model> call, Response<Model> response) {
